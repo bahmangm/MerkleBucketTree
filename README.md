@@ -16,13 +16,13 @@ This class only has a method called generateHash that takes a string and by util
 #### Node class
 This class models a node of MBT and has four properties:
 
-private Node left;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private Node left;
 
-private Node right;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private Node right;
 
-private String hash;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private String hash;
 
-private int bucketIndex;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private int bucketIndex;
 
 The first three fields are self-explanatory and the last one maintains the largest bucketIndex of its children for a non-leaf node and the index of the relevant bucket of the hash table for a leaf node.
 
@@ -31,19 +31,19 @@ Also, it has a constructor and a pair of set and get methods for each property.
 #### MerkleTree class
 This class implements Merkle tree and has two fields:
 
-private static int capacity = 5;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private static int capacity = 5;
 
-private static HashTable hashTable = new HashTable(capacity);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private static HashTable hashTable = new HashTable(capacity);
 
 In addition to main method of the project, this class includes the bellow methods:
 
-generateTree and buildTree are used to make the MBT.
+- generateTree and buildTree are used to make the MBT.
 
-printLevelOrderTraversal shows the hashes of each level of MBT with an empty line to distinguish consecutive levels.
+- printLevelOrderTraversal shows the hashes of each level of MBT with an empty line to distinguish consecutive levels.
 
-copyOnWriteLookup searches for the key in the MBT by traversing from its root to the relevant bucket and then traversing the binary search tree in that bucket considering copyOnWrite restriction.
+- copyOnWriteLookup searches for the key in the MBT by traversing from its root to the relevant bucket and then traversing the binary search tree in that bucket considering copyOnWrite restriction.
 
-copyOnWriteInsert inserts a node in the MBT and then produces the required new hashes in the MBT considering copyOnWrite restriction.
+- copyOnWriteInsert inserts a node in the MBT and then produces the required new hashes in the MBT considering copyOnWrite restriction.
 
 
 ![MBT](https://user-images.githubusercontent.com/14259973/216721589-03f0c57c-94c0-42a8-91a5-f6b87f90c002.png)
@@ -54,38 +54,38 @@ This package is composed of two classes:
 #### Entry class
 This class models a node of the hash table and has four properties:
 
-private String key;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private String key;
 
-private Object value;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private Object value;
 
-private Entry left;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private Entry left;
 
-private Entry right;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private Entry right;
 
 Also, it has a constructor and a pair of set and get methods for each property.
 
 #### HashTable class
 This class implements Merkle tree and has two fields:
 
-private int capacity;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private int capacity;
 
-public Entry[] buckets;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Entry[] buckets;
 
 In addition to a constructor, this class includes the following methods:
 
-bucketIndexFor returns an index for the given key based on its hash code.
+- bucketIndexFor returns an index for the given key based on its hash code.
 
-put and insert are employed to insert a new entry in the binary search tree existing in the buckets of the hash table.
+- put and insert are employed to insert a new entry in the binary search tree existing in the buckets of the hash table.
 
-getValue takes a node as the root of a binary search tree and traverses it to find a node with the given key. It returns its value if such node exists, otherwise it returns null.
+- getValue takes a node as the root of a binary search tree and traverses it to find a node with the given key. It returns its value if such node exists, otherwise it returns null.
 
-getHashes and getHashOfBucket are used to produce and return the hash values of the hash table buckets.
+- getHashes and getHashOfBucket are used to produce and return the hash values of the hash table buckets.
 
-getSum takes the root of a binary search tree and build a string containing the values of all nodes existing in that tree.
+- getSum takes the root of a binary search tree and build a string containing the values of all nodes existing in that tree.
 
-showConcatenatedOfBucket with the help of getSum method prints the contents of all hash table buckets.
+- showConcatenatedOfBucket with the help of getSum method prints the contents of all hash table buckets.
 
-showTable with the help of inorder method show the entries of each bucket in the hash table in a sorted form based on the keys.
+- showTable with the help of inorder method show the entries of each bucket in the hash table in a sorted form based on the keys.
 
 
 ![BST](https://user-images.githubusercontent.com/14259973/216722963-39660378-a59b-4155-a738-9ef81513152f.png)
