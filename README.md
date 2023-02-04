@@ -3,7 +3,7 @@
 
 The management of immutable data needs to address two major challenges: The ever-increasing volume of data caused by immutability and detecting it, if a piece of data is tampered with.
 
-Merkle Bucket Tree (MBT) is employed to solve the problems mentioned. In fact, it is a Merkle tree built on top of a hash table. In order to implement the hash table, an array is used and data entries are hashed to its cells or buckets. Since each bucket is a Binary Search Tree, the entries within each bucket are arranged in sorted order, so binary search can be used to find the target key after the retrieval of the bucket. The bottom most level of MBT maintain the cryptographic hashes computed from the contents of hash table buckets and the internal nodes are formed by calculating the cryptographic hashes of their intermediate children. The cardinality of the bucket set is called capacity and the number of children an internal node of MBT has is called fanout. In our implementation of MBT, capacity can be set before running the program and fanout is two. These parameters are pre-defined and cannot be changed in MBT’s life cycle according to the main paper!
+Merkle Bucket Tree (MBT) is employed to solve the problems mentioned. In fact, it is a Merkle tree built on top of a hash table. In order to implement the hash table, an array is used and data entries are hashed to its cells or buckets. Since each bucket is a Binary Search Tree, the entries within each bucket are arranged in sorted order, so binary search can be used to find the target key after the retrieval of the bucket. The bottom most level of MBT maintain the cryptographic hashes computed from the contents of hash table buckets and the internal nodes are formed by calculating the cryptographic hashes of their intermediate children. The cardinality of the bucket set is called capacity and the number of children an internal node of MBT has is called fanout. In our implementation of MBT, capacity can be set before running the program and fanout is two. These parameters are pre-defined and cannot be changed in MBT’s life cycle according to the main paper [[1]](#1).
 
 ## IMPLEMENTATION
 
@@ -92,7 +92,7 @@ showTable with the help of inorder method show the entries of each bucket in the
 Fig 2: The internal structure of each bucket of the hash table
 
 ### uk.org.bobulous.java.crypto.keccak package
-This package have been proposed by this website [2] and different open source implementations in various programing languages can be found on this website. We take advantage of a java version of it that can be downloaded here [3] . We only use two methods of this package called FIPS202.HashFunction.SHA3_256.apply() and FIPS202.hexFromBytes(). The first one takes a string (to be precise an array of bytes) as input and computes its hash as an array of bytes. The latter method takes the output of first method as input and converts it to a fixed-length string with 64 hex characters.
+This package have been proposed by this website [[2]](#2) and different open source implementations in various programing languages can be found on this website. We take advantage of a java version of it that can be downloaded here [[3]](#3). We only use two methods of this package called FIPS202.HashFunction.SHA3_256.apply() and FIPS202.hexFromBytes(). The first one takes a string (to be precise an array of bytes) as input and computes its hash as an array of bytes. The latter method takes the output of first method as input and converts it to a fixed-length string with 64 hex characters.
 
 
 ![Search](https://user-images.githubusercontent.com/14259973/216736351-f695be71-eacd-4123-a53b-d1f133db473f.png)
@@ -102,3 +102,12 @@ Fig 3: Looking up for a key in the MBT considering copyOnWrite restriction
 ![Insert](https://user-images.githubusercontent.com/14259973/216736545-108e8033-11f0-4fcc-838a-b3e793a0daf4.png)
 Fig 4: Inserting a new node in the MBT considering copyOnWrite restriction
 
+## References
+<a id="1">[1]</a> 
+https://arxiv.org/pdf/2003.02090.pdf
+
+<a id="2">[2]</a> 
+https://keccak.team/software.html
+
+<a id="3">[3]</a>
+https://github.com/Bobulous/Cryptography/tree/master/src/uk/org/bobulous/java/crypto/keccak
